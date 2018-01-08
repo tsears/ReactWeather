@@ -1,0 +1,11 @@
+.panel {
+  border-radius: 5px;
+  background-color: #555;
+  padding: 1em;
+  margin: 1em 2em;
+  box-shadow: 3px 3px #333;
+
+  @media only screen and (max-width: 767px) {
+    margin: auto;
+  }
+}

@@ -95,6 +95,7 @@
     "eslint-plugin-react": "^7.4.0",
     "eslint-plugin-standard": "^3.0.1",
     "node-sass": "^4.7.2",
+    "prop-types": "^15.6.0",
     "sass-loader": "^6.0.6"
   }
 }

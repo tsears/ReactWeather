@@ -1,11 +1,13 @@
-@import 'scss/reset';
-@import 'scss/headings';
-@import 'scss/search-container';
-@import 'scss/tables';
-@import 'scss/notifications';
-@import 'scss/loadingSpinner';
-@import 'scss/links';
-@import 'scss/dialog';
+@import 'reset';
+@import 'headings';
+@import 'search-container';
+@import 'tables';
+@import 'notifications';
+@import 'loadingSpinner';
+@import 'links';
+@import 'lib/css-lib';
+@import 'dialog';
+@import '../jsapp/**/*.scss';
 
 html, body {
   height: 100%;

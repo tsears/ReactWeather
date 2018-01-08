@@ -1,0 +1,15 @@
+.current-conditions {
+  
+  >h2 {
+    text-align: left;
+  }
+  
+  >div {
+    display: flex;
+    justify-content: space-between;
+    
+    >:first-child {
+      width: 20%;
+    }
+  }
+}

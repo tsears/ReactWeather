@@ -1,0 +1,15 @@
+.card {
+  border: 1px solid #cecece;
+  border-radius: 5px;
+  
+  .icon-container {
+    img {
+      height: 100px;
+      width: 100px;
+
+      path {
+        fill: #eee;
+      }
+    }
+  }
+}

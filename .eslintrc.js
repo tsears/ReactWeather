@@ -7,17 +7,22 @@ module.exports = {
         "protractor": true,
     },
     plugins: [ "react", ],
-    "extends": "standard",
+    extends: ["standard", "plugin:react/recommended"],
     globals: {
         CKEDITOR: true,
         // To get to the wiris editor, one uses com.wiris.JsEditor.
         com: true,
     },
     "parserOptions": {
-        "sourceType": "module"
+        "sourceType": "module",
+        ecmaFeatures: {
+          jsx: true,
+        }
     },
     "rules": {
         'valid-jsdoc': 1,
+        "react/jsx-uses-vars": 1,
+        "react/react-in-jsx-scope": 1,
         'comma-dangle': [ 'error', {
             arrays: 'always-multiline',
             objects: 'always-multiline',
