@@ -77,7 +77,7 @@ module.exports = {
           },
         },
         {
-          test: /\.css$/,
+          test: [/\.css$/, /\.scss$/],
           use: [
             require.resolve('style-loader'),
             {
@@ -85,6 +85,9 @@ module.exports = {
               options: {
                 importLoaders: 1,
               },
+            },
+            {
+              loader: require.resolve('sass-loader'),
             },
             {
               loader: require.resolve('postcss-loader'),
@@ -107,7 +110,7 @@ module.exports = {
           ],
         },
         {
-          exclude: [/\.js$/, /\.html$/, /\.json$/],
+          exclude: [/\.js$/, /\.html$/, /\.json$/, /\.scss$/, /\.sass$/],
           loader: require.resolve('file-loader'),
           options: {
             name: 'static/media/[name].[hash:8].[ext]',

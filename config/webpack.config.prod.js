@@ -90,7 +90,7 @@ module.exports = {
           },
         },
         {
-          test: /\.css$/,
+          test: [/\.css$/, /\.scss$/],
           loader: ExtractTextPlugin.extract(
             Object.assign({
               fallback: {
@@ -106,6 +106,9 @@ module.exports = {
                   minimize: true,
                   sourceMap: shouldUseSourceMap,
                 },
+              },
+              {
+                loader: require.resolve('sass-loader'),
               },
               {
                 loader: require.resolve('postcss-loader'),
@@ -133,7 +136,7 @@ module.exports = {
         },
         {
           loader: require.resolve('file-loader'),
-          exclude: [/\.js$/, /\.html$/, /\.json$/],
+          exclude: [/\.js$/, /\.html$/, /\.json$/, /\.scss$/, /\.sass$/],
           options: {
             name: 'static/media/[name].[hash:8].[ext]',
           },
