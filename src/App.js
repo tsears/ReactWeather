@@ -1,7 +1,9 @@
 import React, { Component } from 'react' // eslint-disable-line no-unused-vars
 import { panel } from './panel'
 import CurrentConditions from './CurrentConditions'
+import SVG from 'react-inlinesvg'
 import './App.scss'
+import magnifyIcon from './magnify.svg'
 
 class App extends Component {
   constructor (props) {
@@ -45,7 +47,9 @@ class App extends Component {
 
           <div id="search-container">
             <input placeholder="Enter City or Zip" value={this.state.query} onChange={this.handleChange}/>
-            <button onClick={this.handleSubmit}>Search</button>
+            <button onClick={this.handleSubmit}>
+              <SVG src={magnifyIcon}/>
+            </button>
             <p>City, State -OR- Zip Code</p>
           </div>
         </div>

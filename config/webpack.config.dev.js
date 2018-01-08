@@ -59,63 +59,64 @@ module.exports = {
         include: paths.appSrc,
       },
       {
-        oneOf: [{
-          test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-          loader: require.resolve('url-loader'),
-          options: {
-            limit: 10000,
-            name: 'static/media/[name].[hash:8].[ext]',
+        oneOf: [
+          {
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            loader: require.resolve('url-loader'),
+            options: {
+              limit: 10000,
+              name: 'static/media/[name].[hash:8].[ext]',
+            },
           },
-        },
-        {
-          test: /\.(js|jsx|mjs)$/,
-          include: paths.appSrc,
-          loader: require.resolve('babel-loader'),
-          options: {
+          {
+            test: /\.(js|jsx|mjs)$/,
+            include: paths.appSrc,
+            loader: require.resolve('babel-loader'),
+            options: {
 
-            cacheDirectory: true,
+              cacheDirectory: true,
+            },
           },
-        },
-        {
-          test: [/\.css$/, /\.scss$/],
-          use: [
-            require.resolve('style-loader'),
-            {
-              loader: require.resolve('css-loader'),
-              options: {
-                importLoaders: 1,
+          {
+            test: [/\.css$/, /\.scss$/],
+            use: [
+              require.resolve('style-loader'),
+              {
+                loader: require.resolve('css-loader'),
+                options: {
+                  importLoaders: 1,
+                },
               },
-            },
-            {
-              loader: require.resolve('sass-loader'),
-            },
-            {
-              loader: require.resolve('postcss-loader'),
-              options: {
-                ident: 'postcss',
-                plugins: () => [
-                  require('postcss-flexbugs-fixes'),
-                  autoprefixer({
-                    browsers: [
-                      '>1%',
-                      'last 4 versions',
-                      'Firefox ESR',
-                      'not ie < 9',
-                    ],
-                    flexbox: 'no-2009',
-                  }),
-                ],
+              {
+                loader: require.resolve('sass-loader'),
               },
-            },
-          ],
-        },
-        {
-          exclude: [/\.js$/, /\.html$/, /\.json$/, /\.scss$/, /\.sass$/],
-          loader: require.resolve('file-loader'),
-          options: {
-            name: 'static/media/[name].[hash:8].[ext]',
+              {
+                loader: require.resolve('postcss-loader'),
+                options: {
+                  ident: 'postcss',
+                  plugins: () => [
+                    require('postcss-flexbugs-fixes'),
+                    autoprefixer({
+                      browsers: [
+                        '>1%',
+                        'last 4 versions',
+                        'Firefox ESR',
+                        'not ie < 9',
+                      ],
+                      flexbox: 'no-2009',
+                    }),
+                  ],
+                },
+              },
+            ],
           },
-        },
+          {
+            exclude: [/\.js$/, /\.html$/, /\.json$/, /\.scss$/, /\.sass$/],
+            loader: require.resolve('file-loader'),
+            options: {
+              name: 'static/media/[name].[hash:8].[ext]',
+            },
+          },
         ],
       },
     ],

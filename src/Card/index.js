@@ -1,6 +1,7 @@
 import React from 'react'
 import * as icons from './icons'
 import PropTypes from 'prop-types'
+import SVG from 'react-inlinesvg'
 import './card.scss'
 
 function kebabToCamel (str) {
@@ -17,7 +18,7 @@ export default class Card extends React.Component {
     return (
       <div className="card">
         <div className="icon-container">
-          <img src={icon}/>
+          <SVG src={icon}/>
         </div>
         <div>
           <h2 className="center">{Math.round(temperature)}&deg;</h2>
