@@ -11,5 +11,13 @@
     >:first-child {
       width: 20%;
     }
+    
+    >:last-child {
+      width: 70%;
+    }
+  }
+  
+  table td {
+    text-align: left;
   }
 }
