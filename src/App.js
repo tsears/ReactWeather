@@ -1,9 +1,9 @@
 import React, { Component } from 'react' // eslint-disable-line no-unused-vars
 import { panel } from './panel'
 import CurrentConditions from './CurrentConditions'
-import SVG from 'react-inlinesvg'
+import SearchBox from './SearchBox'
+
 import './App.scss'
-import magnifyIcon from './magnify.svg'
 
 class App extends Component {
   constructor (props) {
@@ -14,15 +14,10 @@ class App extends Component {
       query: '97116',
     }
 
-    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChange (e) {
-    this.setState({query: e.target.value})
-  }
-
-  handleSubmit (e) {
+  handleSubmit (query) {
     fetch(`https://api.tsears.net/weather/?query=${this.state.query}`)
       .then(response => response.json())
       .then(data => {
@@ -44,14 +39,7 @@ class App extends Component {
 
         <div id="big-container">
           <h1 className="center">The Weather</h1>
-
-          <div id="search-container">
-            <input placeholder="Enter City or Zip" value={this.state.query} onChange={this.handleChange}/>
-            <button onClick={this.handleSubmit}>
-              <SVG src={magnifyIcon}/>
-            </button>
-            <p>City, State -OR- Zip Code</p>
-          </div>
+          <SearchBox submit={this.handleSubmit}/>
         </div>
 
         <TodayPanel {...this.state.current}/>
