@@ -1,4 +1,4 @@
-# react-weather #
+# react-weather [![Build Status](https://travis-ci.org/tsears/ReactWeather.svg?branch=master)](https://travis-ci.org/tsears/ReactWeather) #
 
 For my first React project I decided to treat my [existing weather app](https://github.com/tsears/MVCWeather) as a template with the goal of recreating the funcitonality.  I recently replaced the asp.net MVC backend in favor of a [new weather backend](https://github.com/tsears/NodeWeather) built on node+aws (cloudformation/lambda/api
 gateway).
