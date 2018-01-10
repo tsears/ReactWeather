@@ -6,7 +6,6 @@ import KVTable from '../KVTable'
 import { compass } from '../utils'
 
 function extractTableProps (data) {
-  console.log(data)
   const precipProbability = data.precipProbability || data.precipProbability === 0
     ? Math.round(data.precipProbability * 100) + '%'
     : null

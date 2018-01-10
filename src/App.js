@@ -2,6 +2,8 @@ import React, { Component } from 'react' // eslint-disable-line no-unused-vars
 import { panel } from './panel'
 import CurrentConditions from './CurrentConditions'
 import SearchBox from './SearchBox'
+import SVG from 'react-inlinesvg'
+import loading from './loading.svg'
 
 import './App.scss'
 
@@ -18,11 +20,17 @@ class App extends Component {
   }
 
   handleSubmit (query) {
+    const overlay = document.querySelector('.loading-overlay')
+    overlay.classList.remove('hidden')
+    overlay.classList.add('visible')
+
     fetch(`https://api.tsears.net/weather/?query=${this.state.query}`)
       .then(response => response.json())
       .then(data => {
         const weatherData = JSON.parse(data.body)
         this.setState({current: weatherData.currently})
+        overlay.classList.remove('visible')
+        overlay.classList.add('hidden')
       })
       .catch(err => {
         console.log(err)
@@ -34,7 +42,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="loading-coverlay">
+        <div className="loading-overlay hidden">
+          <SVG src={loading}/>
         </div>
 
         <div id="big-container">

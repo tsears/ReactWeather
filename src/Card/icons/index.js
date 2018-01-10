@@ -4,7 +4,6 @@ import _cloudy from './cloudy.svg'
 import _defaultIcon from './default.svg'
 import _down from './down.svg'
 import _fog from './fog.svg'
-import _loading from './loading.svg'
 import _partlyCloudyDay from './partly-cloudy-day.svg'
 import _partlyCloudyNight from './partly-cloudy-night.svg'
 import _rain from './rain.svg'
@@ -19,7 +18,6 @@ export const cloudy = _cloudy
 export const defaultIcon = _defaultIcon
 export const down = _down
 export const fog = _fog
-export const loading = _loading
 export const partlyCloudyDay = _partlyCloudyDay
 export const partlyCloudyNight = _partlyCloudyNight
 export const rain = _rain
