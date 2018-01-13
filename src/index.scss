@@ -30,16 +30,15 @@ div, p, table {
   margin: 0;
   padding: 0;
 }
+
 header {
-  display: flex;
-  justify-content: flex-end;
-  
-  img { display: block; }
+  .icons {
+    float: right;
+  }
 }
 
 header, footer {
   background-color: rgba(0,0,0,0.9);
-  padding: 1em;
   box-shadow: 0 0 10px #000;
   
   img {
@@ -48,6 +47,7 @@ header, footer {
 }
 
 footer {
+  padding: 1em;
   >div {
     display: flex;
     justify-content: space-between;

@@ -2,6 +2,7 @@ import React from 'react'
 import * as icons from './icons'
 import PropTypes from 'prop-types'
 import SVG from 'react-inlinesvg'
+import Temperature from './temperature'
 import './card.scss'
 
 function kebabToCamel (str) {
@@ -13,16 +14,17 @@ export default class Card extends React.Component {
     const icon = this.props.icon
       ? icons[kebabToCamel(this.props.icon)]
       : icons.defaultIcon
-    const temperature = this.props.temperature || 0
 
     return (
       <div className="card">
         <div className="icon-container">
           <SVG src={icon}/>
         </div>
-        <div>
-          <h2 className="center">{Math.round(temperature)}&deg;</h2>
-        </div>
+        <Temperature
+          high={this.props.high}
+          low={this.props.low}
+          temperature={this.props.temperature}
+        />
         <p className="center">
           {this.props.summary}
         </p>
@@ -34,5 +36,7 @@ export default class Card extends React.Component {
 Card.propTypes = {
   icon: PropTypes.string,
   temperature: PropTypes.number,
+  high: PropTypes.number,
+  low: PropTypes.number,
   summary: PropTypes.string,
 }

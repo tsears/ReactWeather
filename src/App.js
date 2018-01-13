@@ -1,6 +1,7 @@
 import React, { Component } from 'react' // eslint-disable-line no-unused-vars
 import { panel } from './panel'
 import CurrentConditions from './CurrentConditions'
+import TodayForecast from './TodayForecast'
 import SearchBox from './SearchBox'
 import SVG from 'react-inlinesvg'
 import loading from './loading.svg'
@@ -28,7 +29,11 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         const weatherData = JSON.parse(data.body)
-        this.setState({current: weatherData.currently})
+        console.log(weatherData)
+        this.setState({
+          current: weatherData.currently,
+          today: weatherData.daily.data[0],
+        })
         overlay.classList.remove('visible')
         overlay.classList.add('hidden')
       })
@@ -38,7 +43,8 @@ class App extends Component {
   }
 
   render (props) {
-    const TodayPanel = panel(CurrentConditions)
+    const CurrentPanel = panel(CurrentConditions)
+    const TodayPanel = panel(TodayForecast)
 
     return (
       <div className="App">
@@ -51,7 +57,9 @@ class App extends Component {
           <SearchBox submit={this.handleSubmit}/>
         </div>
 
-        <TodayPanel {...this.state.current}/>
+        <CurrentPanel {...this.state.current}/>
+
+        <TodayPanel {...this.state.today}/>
       </div>
     )
   }
